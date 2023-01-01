@@ -5,3 +5,6 @@ I mostly done this project myself but i changed my code for making it looking si
 
 For installing simply use npm install and npm run serve in terminal
 
+![image](https://user-images.githubusercontent.com/64266261/210182663-9c3dc312-e2e3-46e4-8b8a-84de49c3fec4.png)
+
+![image](https://user-images.githubusercontent.com/64266261/210182670-cd4d3295-ec2c-4e3b-acf8-2ba6dc69f737.png)
