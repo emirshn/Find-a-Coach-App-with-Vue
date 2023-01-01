@@ -1,3 +1,5 @@
+import links from '../../../firebase.js';
+
 export default {
   async contactCoach(context, payload) {
     const newRequest = {
@@ -5,7 +7,7 @@ export default {
       message: payload.message,
     };
     const response = await fetch(
-      `https://vue-course-6ffa9-default-rtdb.firebaseio.com/requests/${payload.coachId}.json`,
+      `${links.link}requests/${payload.coachId}.json`,
       { method: 'POST', body: JSON.stringify(newRequest) }
     );
 
@@ -22,9 +24,7 @@ export default {
   },
   async fetchRequests(context) {
     const coachId = context.rootGetters.userId;
-    const response = await fetch(
-      `https://vue-course-6ffa9-default-rtdb.firebaseio.com/requests/${coachId}.json`
-    );
+    const response = await fetch(`${links.link}requests/${coachId}.json`);
     const responseData = await response.json();
 
     if (!response.ok) {

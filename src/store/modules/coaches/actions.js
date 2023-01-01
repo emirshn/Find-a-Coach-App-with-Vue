@@ -1,3 +1,5 @@
+import links from '../../../firebase.js';
+
 export default {
   async registerCoach(context, data) {
     const userId = context.rootGetters.userId;
@@ -9,13 +11,10 @@ export default {
       areas: data.areas,
     };
 
-    const response = await fetch(
-      `https://vue-course-6ffa9-default-rtdb.firebaseio.com/coaches/${userId}.json`,
-      {
-        method: 'PUT',
-        body: JSON.stringify(coachData),
-      }
-    );
+    const response = await fetch(`${links.link}coaches/${userId}.json`, {
+      method: 'PUT',
+      body: JSON.stringify(coachData),
+    });
 
     //const responseData = await response.json();
 
@@ -33,9 +32,7 @@ export default {
       return;
     }
 
-    const response = await fetch(
-      `https://vue-course-6ffa9-default-rtdb.firebaseio.com/coaches.json`
-    );
+    const response = await fetch(`${links.link}coaches.json`);
     const responseData = await response.json();
 
     if (!response.ok) {
