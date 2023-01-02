@@ -1,3 +1,4 @@
+import key from '../../../firebase.js';
 let timer;
 
 export default {
@@ -16,11 +17,11 @@ export default {
   async auth(context, payload) {
     const mode = payload.mode;
     let url =
-      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIOUOFj_V6kMA_JXFZCUn5I3Pofr3PzOM';
+    `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${key.key}`;
 
     if (mode === 'signup') {
       url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCIOUOFj_V6kMA_JXFZCUn5I3Pofr3PzOM';
+      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${key.key}`;
     }
     const response = await fetch(url, {
       method: 'POST',
